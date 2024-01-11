@@ -1,0 +1,24 @@
+<div class="details">
+    <div class="cardHeader">
+        <h2>Employee Details</h2>
+    </div>
+    <div *ngIf="employee">
+        <div class="avatar-container">
+            <!-- Dummy avatar image (replace with your actual image URL or use an icon library) -->
+            <img class="avatar" src="https://cdn.pixabay.com/photo/2018/08/28/12/41/avatar-3637425_1280.png"
+                alt="Avatar" />
+
+            <!-- Employee details -->
+            <p>ID: {{ employee._id }}</p>
+            <p>Name: {{ employee.name }}</p>
+            <p>Position: {{ employee.position }}</p>
+            <p>Contact: {{ employee.contact }}</p>
+            <p>Salary: {{ employee.salary }}</p>
+            <p>Experience: {{ employee.experience }}</p>
+
+            <!-- Edit and Delete buttons -->
+            <button (click)="editEmployee()">Edit</button>
+            <button (click)="deleteEmployee()">Delete</button>
+        </div>
+    </div>
+</div>

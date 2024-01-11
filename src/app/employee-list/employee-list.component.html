@@ -1,0 +1,30 @@
+<div class="details">
+    <div class="recentOrders">
+        <div class="cardHeader">
+            <h2>All employees</h2>
+            <a routerLink="/add" class="btn">Add employees</a>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Name</td>
+                    <td>Position</td>
+                    <td>Contact</td>
+                    <td>Salary</td>
+                    <td>Experience</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employee of employees" [routerLink]="['/employee', employee._id]">
+                    <td>{{ employee._id }}</td>
+                    <td>{{ employee.name }}</td>
+                    <td>{{ employee.position }}</td>
+                    <td>{{ employee.contact }}</td>
+                    <td>{{ employee.salary }}</td>
+                    <td>{{ employee.experience }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
