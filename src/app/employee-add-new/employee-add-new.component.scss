@@ -1,10 +1,14 @@
-/* employee-add.component.scss */
-
 .employee-add-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+
+    .success-snackbar {
+        background-color: #4caf50;
+
+        color: white;
+    }
 
     .employee-form {
         width: 300px;

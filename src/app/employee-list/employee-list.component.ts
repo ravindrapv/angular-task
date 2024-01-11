@@ -1,4 +1,4 @@
-// employee-list.component.ts
+
 
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../employee.service';
@@ -9,7 +9,8 @@ import { EmployeeService } from '../employee.service';
   styleUrls: ['./employee-list.component.scss']
 })
 export class EmployeeListComponent implements OnInit {
-  employees!: any[];
+  employees: any[] = [];
+  loading: boolean = true; 
 
   constructor(private employeeService: EmployeeService) { }
 
@@ -18,8 +19,15 @@ export class EmployeeListComponent implements OnInit {
   }
 
   loadEmployees() {
-    this.employeeService.getEmployees().subscribe(data => {
-      this.employees = data.employees;
-    });
+    this.employeeService.getEmployees().subscribe(
+      data => {
+        this.employees = data.employees;
+        this.loading = false;
+      },
+      error => {
+        console.error('Error fetching employees:', error);
+        this.loading = false; 
+      }
+    );
   }
 }

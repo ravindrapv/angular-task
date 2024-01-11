@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { DetailedViewComponent } from './detailed-view/detailed-view.component';
-// import { EmployeeAddComponent } from './employee-add-modal/employee-add-modal.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -35,7 +35,8 @@ import { EmployeeEditComponent } from './employee-edit/employee-edit.component'
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatDialogModule,
-    CommonModule
+    CommonModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

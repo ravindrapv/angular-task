@@ -1,8 +1,7 @@
-// employee-edit.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar'; 
 import { EmployeeService } from '../employee.service';
 import { Employee } from '../employee.model';
 
@@ -19,6 +18,7 @@ export class EmployeeEditComponent implements OnInit {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
+    private snackBar: MatSnackBar, // Inject MatSnackBar
     private employeeService: EmployeeService
   ) {
     this.employeeForm = this.fb.group({
@@ -52,6 +52,7 @@ export class EmployeeEditComponent implements OnInit {
       this.employeeService.updateEmployee(this.employee._id, updatedEmployee).subscribe(
         (response) => {
           console.log(response);
+          this.showSnackBar('Employee edited successfully'); 
           this.router.navigate(['/employees']);
         },
         (error) => {
@@ -65,5 +66,12 @@ export class EmployeeEditComponent implements OnInit {
       // Handle form validation errors
       console.error('Form validation failed');
     }
+  }
+
+  showSnackBar(message: string) {
+    this.snackBar.open(message, 'Close', {
+      duration: 3000,
+      verticalPosition: 'top',
+    });
   }
 }
